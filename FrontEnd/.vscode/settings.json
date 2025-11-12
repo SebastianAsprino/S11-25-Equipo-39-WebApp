@@ -1,0 +1,10 @@
+{
+    "conventionalCommits.scopes": [
+        "installs",
+        "styles",
+        "layout",
+        "config",
+        "pages",
+        "components",
+    ]
+}
