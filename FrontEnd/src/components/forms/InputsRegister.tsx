@@ -19,7 +19,7 @@ const InputsRegister = ({
     <div className="flex flex-col mx-auto w-full mb-4">
       <div className="flex justify-between">
         <label htmlFor={name}>{label}</label>
-        {errors && <p className="validator-message text-red-200">{errors.message ?? ""}</p>}
+        {errors && <p className="validator-message text-red-200 text-sm">{errors.message ?? ""}</p>}
       </div>
       <Controller
         render={({ field }) => (
