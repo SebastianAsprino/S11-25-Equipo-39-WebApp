@@ -6,7 +6,7 @@ import InputsLogin from "src/components/forms/InputsLogin";
 
 const LoginForm = () => {
   const { control, handleSubmit, formState: { errors } } = useForm<LoginSchema>({
-    resolver: zodResolver(loginSchema), defaultValues: {
+resolver: zodResolver(loginSchema as any), defaultValues: {
     email: "",
     password: "",
   },
