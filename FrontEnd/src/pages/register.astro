@@ -1,0 +1,37 @@
+---
+import LayoutForm from "@/layouts/LayoutForm.astro";
+import { Image } from "astro:assets";
+import registerImage from "@/assets/img/register.png";
+import RegisterForm from "@/components/forms/RegisterForm";
+---
+
+<LayoutForm>
+  <main class="flex md:w-2/3 lg:w-full justify-center items-center">
+    <div class="flex w-full gap-10 justify-center">
+      <section class="flex-col pt-10 items-center px-10">
+        <h1
+          class="font-bold text-xl md:text-3xl lg:text-3xl text-balance text-center"
+        >
+          Crea tu cuenta para empezar a cuidar a tu mascota
+        </h1>
+        <p class="mt-3 text-center">
+          toda la información de tu mascota en un solo lugar
+        </p>
+        <div class="mt-5">
+          <RegisterForm client:load />
+          <p class="text-center mt-6">
+            ¿Ya tienes una cuenta? <a href="/login" class="text-primary"
+              >Inicia sesión</a>
+          </p>
+        </div>
+      </section>
+      <figure class="w-full h-full hidden lg:flex">
+        <Image
+          src={registerImage}
+          alt={"image-register"}
+          class={"w-full h-full object-cover"}
+        />
+      </figure>
+    </div>
+  </main>
+</LayoutForm>
