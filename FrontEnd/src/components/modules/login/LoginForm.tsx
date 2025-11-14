@@ -34,7 +34,7 @@ resolver: zodResolver(loginSchema as any), defaultValues: {
             name="email"
             control={control}
             type="text"
-            label="Correo o Usuario"
+            label="Correo"
             errors={errors.email}
           />
 
