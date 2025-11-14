@@ -47,7 +47,7 @@ resolver: zodResolver(loginSchema as any), defaultValues: {
           />
 
           <div className="flex justify-end text-sm mt-1">
-            <a href="#" className="text-primary hover:underline">
+            <a href="/reset-password" className="text-primary hover:underline">
               ¿Olvidaste tu contraseña?
             </a>
           </div>
