@@ -18,7 +18,8 @@ export const Login = new Elysia()
 		}
 
 		const token = await jwt.sign({
-			username: result.payload,
+			id: result.payload?.id,
+			username: result.payload?.username
 		});
 
 		auth.set({

@@ -2,7 +2,11 @@ import { db, schema } from "../../services";
 import { type loginType, type res } from "../../DTO";
 import { eq } from 'drizzle-orm';
 
-export const login = async (login: loginType): Promise<res<string>> =>
+type payload = {
+	id: number;
+	username: string;
+};
+export const login = async (login: loginType): Promise<res<payload>> =>
 {
 	const user = await db.select()
 		.from(schema.usuario)
@@ -33,7 +37,10 @@ export const login = async (login: loginType): Promise<res<string>> =>
 	return {
 		success: true,
 		message: "Inicio de sesion exitoso.",
-		payload: user.username,
+		payload: {
+			id: user.id,
+			username: user.username,
+		},
 		statusCode: 200
 	};
 };
