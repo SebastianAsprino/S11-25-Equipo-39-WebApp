@@ -19,6 +19,7 @@ const app = new Elysia()
 		}
 	}))
 	.use(Routes)
+	.get("/", "PET HEALTH TRACKER API")
 	.listen(8000);
 
 console.log(
