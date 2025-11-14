@@ -1,0 +1,19 @@
+---
+import LayoutLogin from "@/layouts/LayoutLogin.astro";
+import LoginForm from "@/components/modules/login/LoginForm";
+---
+
+<LayoutLogin>
+  <div class="flex min-h-screen">
+    <div class="hidden lg:flex w-1/2 items-center justify-center p-12 bg-base-200">
+      <div class="text-center">
+        <h2 class="text-4xl font-bold mb-4">Bienvenido a Pet Health Tracker</h2>
+        <p class="text-lg opacity-90">Lleva el control de tus mascotas con facilidad y cariño.</p>
+      </div>
+    </div>
+
+    <div class="flex w-full lg:w-1/2">
+      <LoginForm client:load />
+    </div>
+  </div>
+</LayoutLogin>
