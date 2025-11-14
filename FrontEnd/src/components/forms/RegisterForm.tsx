@@ -13,12 +13,39 @@ const RegisterForm = () => {
     formState: { errors },
   } = useForm<RegisterSchema>({ resolver: zodResolver(registerSchema as any) });
 
-  const onSubmit: SubmitHandler<RegisterSchema> = (data) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<RegisterSchema> = async (data) => {
+    try {
+      const response = await fetch(
+        `${import.meta.env.PUBLIC_BASE_URL}/user/register`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: data.username,
+            email: data.email,
+            password: data.password,
+            confirmPassword: data.confirmPassword,
+          }),
+        }
+      );
+      if (!response.ok) {
+        throw new Error("Error en el registro");
+      }
+      window.location.href = "/login";
+    } catch (error) {
+      console.error("Error al registrar el usuario:", error);
+    } finally {
+      console.log("Registro finalizado");
+    }
   };
 
   return (
-    <form className="flex flex-col items-center" onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className="flex flex-col items-center"
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <InputsRegister
         name="username"
         control={control}
