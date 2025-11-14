@@ -12,7 +12,10 @@ const app = new Elysia()
 				description: "Api pet health tracker.",
 				version: "0.0.1"
 			},
-			tags: [{ name: 'User', description: 'User endpoints' }]
+			tags: [
+				{ name: 'User', description: 'User endpoints' },
+				{ name: 'Auth', description: 'Auth endpoints' }
+			]
 		}
 	}))
 	.use(Routes)
