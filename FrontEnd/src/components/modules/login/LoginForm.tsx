@@ -1,25 +1,52 @@
-// LoginForm.tsx
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { loginSchema, type LoginSchema } from "src/lib/schemas/loginSchema";
 import InputsLogin from "src/components/forms/InputsLogin";
+import { ToastProvider, useToast } from "src/components/common/toast";
 
-const LoginForm = () => {
-  const { control, handleSubmit, formState: { errors } } = useForm<LoginSchema>({
-resolver: zodResolver(loginSchema as any), defaultValues: {
-    email: "",
-    password: "",
-  },
+const LoginFormContent = () => {
+  const { showToast } = useToast();
+
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<LoginSchema>({
+    resolver: zodResolver(loginSchema as any),
+    defaultValues: { email: "", password: "" },
   });
 
-  const onSubmit: SubmitHandler<LoginSchema> = (data) => {
-    console.log("Login data:", data);
+  const onSubmit: SubmitHandler<LoginSchema> = async (data) => {
+    try {
+      const response = await fetch(
+        `${import.meta.env.PUBLIC_BASE_URL}/auth/login`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: data.email, password: data.password }),
+          credentials: "include",
+        }
+      );
+
+      const result = await response.json();
+
+      if (result.success) {
+        showToast(result.message || "Inicio de sesión exitoso", "success");
+        setTimeout(() => (window.location.href = "/"), 1500);
+      } else {
+        showToast(result.message || "Credenciales inválidas", "error");
+      }
+    } catch (error) {
+      showToast(
+        (error as Error).message || "Error en la conexión con el servidor",
+        "error"
+      );
+    }
   };
 
   return (
     <div className="w-full min-h-screen flex flex-col justify-center bg-base-100 text-base-content">
       <div className="w-full max-w-md mx-auto p-8 lg:p-12">
-
         <div className="text-center mb-8">
           <h1 className="text-3xl font-extrabold tracking-tight text-primary">
             Inicia sesión
@@ -37,7 +64,6 @@ resolver: zodResolver(loginSchema as any), defaultValues: {
             label="Correo"
             errors={errors.email}
           />
-
           <InputsLogin
             name="password"
             control={control}
@@ -62,7 +88,10 @@ resolver: zodResolver(loginSchema as any), defaultValues: {
 
         <p className="mt-6 text-center text-base-content opacity-90">
           ¿No tienes cuenta?{" "}
-          <a href="/register" className="font-semibold text-primary hover:underline">
+          <a
+            href="/register"
+            className="font-semibold text-primary hover:underline"
+          >
             Regístrate
           </a>
         </p>
@@ -70,5 +99,11 @@ resolver: zodResolver(loginSchema as any), defaultValues: {
     </div>
   );
 };
+
+const LoginForm = () => (
+  <ToastProvider>
+    <LoginFormContent />
+  </ToastProvider>
+);
 
 export default LoginForm;
