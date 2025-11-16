@@ -1,3 +1,5 @@
+import Theme from '@/components/theme/Theme'
+
 const NavBar = () => {
   return (
     <div className="navbar flex justify-end px-5 bg-base-100 shadow-sm">
@@ -47,7 +49,7 @@ const NavBar = () => {
               </a>
             </li>
             <li>
-              <a>tema oscuro</a>
+              <Theme />
             </li>
             <li>
               <a>Cerrar sesión</a>
