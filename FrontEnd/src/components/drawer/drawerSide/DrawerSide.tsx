@@ -30,7 +30,7 @@ const DrawerSide = ({ children }: Props) => {
           className="drawer-overlay"
         ></label>
         <ul className="flex flex-col bg-base-200 min-h-full w-80 p-4">
-            <a href="/dashboard" className="font-bold px-2 text-2xl text-white mb-5">pet<span className="text-green-500">Health</span></a>
+            <a href="/dashboard" className="font-bold px-2 text-2xl mb-5">pet<span className="text-green-500">Health</span></a>
           {/* Sidebar content here */}
           <li className="flex py-3 px-2 rounded gap-2 items-center hover:bg-base-100">
             <HomeIcon />
