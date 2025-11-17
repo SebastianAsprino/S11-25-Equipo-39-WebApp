@@ -3,7 +3,7 @@ import { DTOactualizarUsuario, type actualizarUsuarioType } from "./usuario/actu
 import { DTOeliminarUsuario, type eliminarUsuarioType } from "./usuario/eliminar";
 
 import { DTOlogin, type loginType } from "./auth/login";
-
+import { DTOSolicitarRecuperacion, DTOVerificarToken, DTOResetearPassword, type SolicitarRecuperacionType, type VerificarTokenType, type ResetearPasswordType } from "./auth/recuperarcontrasena";
 import { Respond, type res } from "./respond";
 
 export const DTO = {
@@ -11,6 +11,9 @@ export const DTO = {
 	DTOactualizarUsuario,
 	DTOeliminarUsuario,
 	DTOlogin,
+	DTOSolicitarRecuperacion,
+	DTOVerificarToken,
+	DTOResetearPassword,
 	Respond
 };
 
@@ -19,5 +22,8 @@ export type {
 	actualizarUsuarioType,
 	eliminarUsuarioType,
 	loginType,
+	SolicitarRecuperacionType,
+	VerificarTokenType,
+	ResetearPasswordType,
 	res
 };
