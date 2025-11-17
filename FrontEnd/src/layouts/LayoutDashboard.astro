@@ -1,0 +1,13 @@
+---
+import DrawerSide from "@/components/drawer/drawerSide/DrawerSide";
+import "../styles/global.css";
+---
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <DrawerSide client:only>
+    <slot />
+  </DrawerSide>
+</html>
