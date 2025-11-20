@@ -1,33 +1,27 @@
-FROM oven/bun AS build
+FROM oven/bun:1-debian AS build
 
-WORKDIR /
-
-# Cache packages installation
-COPY package.json package.json
-
+WORKDIR /app
+COPY package.json bun.lockb ./
 RUN bun install
 
-COPY ./ ./
-
-ENV NODE_ENV=production
+COPY . .
 
 RUN bun build \
-	--compile \
-	--minify-whitespace \
-	--minify-syntax \
-	--target bun \
-	--outfile server \
-	./src/index.ts
+    --compile \
+    --minify-whitespace \
+    --minify-syntax \
+    --target bun \
+    --outfile server \
+    ./src/index.ts
 
-FROM alpine:3.20
-RUN apk add --no-cache libvips
 
-WORKDIR /
+# Runtime
+FROM debian:bookworm-slim
 
-COPY --from=build /server server
+RUN apt-get update && apt-get install -y libvips && apt-get clean
 
-ENV NODE_ENV=production
+WORKDIR /app
+COPY --from=build /app/server ./server
 
 CMD ["./server"]
-
 EXPOSE 8000
