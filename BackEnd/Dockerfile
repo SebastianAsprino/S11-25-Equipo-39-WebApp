@@ -58,7 +58,7 @@ FROM debian:bookworm-slim
 RUN apt-get update && apt-get install -y libvips && apt-get clean
 
 WORKDIR /app
-COPY --from=build /app/server ./server
+COPY --from=build /server ./server
 
 CMD ["./server"]
 EXPOSE 8000
