@@ -1,28 +1,32 @@
-import { login } from "./auth/login";                       // Función para login
-import { crearUsuario } from "./usuario/crear";             // Crear usuario
-import { actualizarUsuario } from "./usuario/actualizar";   // Actualizar usuario
-import { eliminarUsuario } from "./usuario/eliminar";       // Eliminar usuario
+import { login } from "./auth/login";
+import { recuperacionRepository } from "./auth/recuperacioncontrasena";
 
-// 👇 Imports de mascota
-import { crearMascota } from "./mascota/crear";             // Crear mascota
-import { listarMascotasPorUsuario } from "./mascota/listar";// Listar mascotas
-import { actualizarMascota } from "./mascota/actualizar";   // Actualizar mascota
-import { eliminarMascota } from "./mascota/eliminar";       // Eliminar mascota
+import { crearUsuario } from "./usuario/crear";
+import { actualizarUsuario } from "./usuario/actualizar";
+import { eliminarUsuario } from "./usuario/eliminar";
+
+import { crearMascota } from "./mascota/crear";
+import { listarMascotasPorUsuario } from "./mascota/listar";
+import { actualizarMascota } from "./mascota/actualizar";
+import { eliminarMascota } from "./mascota/eliminar";
+import { obtenerFotoMascota } from "./mascota/getFotoMascota";
+
 
 export const REPOauth = {
-  login,                                                    // Repositorio de auth
+	login,
+	recuperacionRepository
 };
 
 export const REPOusuario = {
-  crearUsuario,
-  actualizarUsuario,
-  eliminarUsuario,
+	crearUsuario,
+	actualizarUsuario,
+	eliminarUsuario,
 };
 
-// Nuevo repositorio para mascotas
 export const REPOMascota = {
-  crearMascota,
-  listarMascotasPorUsuario,
-  actualizarMascota,
-  eliminarMascota,
+	crearMascota,
+	listarMascotasPorUsuario,
+	actualizarMascota,
+	eliminarMascota,
+	obtenerFotoMascota
 };
