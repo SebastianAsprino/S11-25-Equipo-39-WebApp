@@ -19,8 +19,8 @@ RUN bun build \
 	--outfile server \
 	./src/index.ts
 
-FROM oven/bun:1-alpine
-RUN apk add --no-cache vips-dev libc6-compat
+FROM alpine:3.20
+RUN apk add --no-cache libvips
 
 WORKDIR /
 
