@@ -19,7 +19,8 @@ RUN bun build \
 	--outfile server \
 	./src/index.ts
 
-FROM gcr.io/distroless/base
+FROM oven/bun:1-alpine
+RUN apk add --no-cache vips-dev libc6-compat
 
 WORKDIR /
 
