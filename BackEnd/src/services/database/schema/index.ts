@@ -1,7 +1,9 @@
-import { usuario } from "./usuario"; // Tabla usuario ya existente
-import { mascota } from "./mascota"; // Nueva tabla mascota
+import { tokensRecuperacion } from "./recuperacion";
+import { usuario } from "./usuario";
+import { mascota } from "./mascota";
 
 export const schema = {
-  usuario,                          // Mantiene la tabla de usuario
-  mascota,                          // Agrega la tabla de mascota al schema global
+	usuario,
+	tokensRecuperacion,
+	mascota
 };

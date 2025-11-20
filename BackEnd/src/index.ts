@@ -14,7 +14,8 @@ const app = new Elysia()
 			},
 			tags: [
 				{ name: 'User', description: 'User endpoints' },
-				{ name: 'Auth', description: 'Auth endpoints' }
+				{ name: 'Auth', description: 'Auth endpoints' },
+				{ name: 'Pets', description: 'Pets endpoints' }
 			]
 		}
 	}))
