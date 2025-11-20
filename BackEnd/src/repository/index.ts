@@ -4,6 +4,7 @@ import { recuperacionRepository } from "./auth/recuperacioncontrasena";
 import { crearUsuario } from "./usuario/crear";
 import { actualizarUsuario } from "./usuario/actualizar";
 import { eliminarUsuario } from "./usuario/eliminar";
+import { obtenerUsername } from "./usuario/nombreUsuario";
 
 import { crearMascota } from "./mascota/crear";
 import { listarMascotasPorUsuario } from "./mascota/listar";
@@ -21,6 +22,7 @@ export const REPOusuario = {
 	crearUsuario,
 	actualizarUsuario,
 	eliminarUsuario,
+	obtenerUsername
 };
 
 export const REPOMascota = {
