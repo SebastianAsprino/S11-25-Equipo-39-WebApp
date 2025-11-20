@@ -14,12 +14,13 @@ const app = new Elysia()
 			},
 			tags: [
 				{ name: 'User', description: 'User endpoints' },
-				{ name: 'Auth', description: 'Auth endpoints' }
+				{ name: 'Auth', description: 'Auth endpoints' },
+				{ name: 'Pets', description: 'Pets endpoints' }
 			]
 		}
 	}))
 	.use(Routes)
-	.get("/", "PET HEALTH TRACKER API v0.0.2")
+	.get("/", "PET HEALTH TRACKER API")
 	.listen(8000);
 
 console.log(

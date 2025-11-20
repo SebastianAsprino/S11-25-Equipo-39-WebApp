@@ -25,9 +25,10 @@ export const Login = new Elysia()
 		auth.set({
 			value: token,
 			httpOnly: true,
-			maxAge: 7 * 86400, // 7 días en segundos
+			maxAge: 7 * 86400,
 			path: '/',
-			sameSite: 'lax'
+			sameSite: 'none',
+			secure: true
 		});
 
 		return status(result.statusCode as 200, {

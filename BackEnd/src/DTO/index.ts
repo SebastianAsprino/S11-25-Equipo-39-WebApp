@@ -4,6 +4,11 @@ import { DTOeliminarUsuario, type eliminarUsuarioType } from "./usuario/eliminar
 
 import { DTOlogin, type loginType } from "./auth/login";
 import { DTOSolicitarRecuperacion, DTOVerificarToken, DTOResetearPassword, type SolicitarRecuperacionType, type VerificarTokenType, type ResetearPasswordType } from "./auth/recuperarcontrasena";
+
+import { DTOactualizarMascota, type actualizarMascotaType } from "./mascota/actualizar";
+import { DTOcrearMascota, type crearMascotaType } from "./mascota/crear";
+import { DTOeliminarMascota, type eliminarMascotaType } from "./mascota/eliminar";
+
 import { Respond, type res } from "./respond";
 
 export const DTO = {
@@ -14,6 +19,9 @@ export const DTO = {
 	DTOSolicitarRecuperacion,
 	DTOVerificarToken,
 	DTOResetearPassword,
+	DTOactualizarMascota,
+	DTOcrearMascota,
+	DTOeliminarMascota,
 	Respond
 };
 
@@ -25,5 +33,8 @@ export type {
 	SolicitarRecuperacionType,
 	VerificarTokenType,
 	ResetearPasswordType,
+	actualizarMascotaType,
+	crearMascotaType,
+	eliminarMascotaType,
 	res
 };
